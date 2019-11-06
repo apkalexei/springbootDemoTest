@@ -15,7 +15,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
-                sh 'mvn goal -Ddockerfile.username=anatolyalexei -Ddockerfile.password=be3e14df-c305-4cd0-8575-79645372cbd3'
+                
             }
         }
         stage('Unit Test') {
@@ -31,6 +31,7 @@ pipeline {
        stage('Deliver') {
             steps {
                 sh './jenkins/scripts/deliver.sh'
+                sh 'mvn deploy'
               /*  sh 'sudo docker login -u anatolyalexei -p be3e14df-c305-4cd0-8575-79645372cbd3' */
                 
             }
