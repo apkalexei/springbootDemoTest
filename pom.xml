@@ -9,6 +9,7 @@
     <version>1.0.0</version>
     <name>JavaCIDemoIntercorp</name>
     <url>http://maven.apache.org</url>
+    <packaging>jar</packaging>
 
 
     <parent>
@@ -55,6 +56,22 @@
 
     <build>
         <plugins>
+            <plugin>
+                <!-- Build an executable JAR -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                <!-- <outputDirectory>/tmp</outputDirectory> -->
+                <archive>
+                    <manifest>
+                    <addClasspath>true</addClasspath>
+                    <classpathPrefix>lib/</classpathPrefix>
+                    <mainClass>com.stark.App</mainClass>
+                    </manifest>
+                </archive>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
