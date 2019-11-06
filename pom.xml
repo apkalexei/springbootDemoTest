@@ -94,13 +94,31 @@
                     <version>1.4.3</version>
                     <executions>
                         <execution>
-                            <id>default</id>
+                            <id>tag-latest</id>
                             <goals>
                                 <goal>build</goal>
+                                <goal>tag</goal>
+                                <goal>push</goal>
                             </goals>
+                            <configuration>
+                                <tag>latest</tag>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>tag-version</id>
+                            <goals>
+                                <goal>build</goal>
+                                <goal>tag</goal>
+                                <goal>push</goal>
+                            </goals>
+                            <configuration>
+                                <tag>${project.version}</tag>
+                            </configuration>
                         </execution>
                     </executions>
                     <configuration>
+                        <username>anatolyalexei</username>
+                        <password>be3e14df-c305-4cd0-8575-79645372cbd3</password>
                         <repository>docker.io/anatolyalexei/r6g3sys</repository>
                         <tag>${project.version}</tag>
                     </configuration>
