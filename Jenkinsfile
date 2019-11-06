@@ -4,12 +4,13 @@ pipeline {
             image 'maven:3-alpine'
             args '-v /root/.m2:/root/.m2'
         }
+    }
     environment {
     registry = "docker.io/anatolyalexei/r6g3sys"
     registryCredential = 'dockerhub'
     dockerImage = ''
-  }
     }
+    
     stages {
         stage('Build') {
             steps {
