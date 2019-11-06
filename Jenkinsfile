@@ -4,6 +4,11 @@ pipeline {
             image 'maven:3-alpine'
             args '-v /root/.m2:/root/.m2'
         }
+    environment {
+    registry = "docker.io/anatolyalexei/r6g3sys"
+    registryCredential = 'dockerhub'
+    dockerImage = ''
+  }
     }
     stages {
         stage('Build') {
@@ -26,6 +31,30 @@ pipeline {
                 sh './jenkins/scripts/deliver.sh'
             }
         }
-        
+        stage('Building image') {
+            steps{
+                script {
+                    unstash 'targetfiles'
+                    sh 'ls -l -R'
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                }
+            }
+        }
+        stage('Deploy Image') {
+            steps{
+                script {
+                    docker.withRegistry( '', registryCredential ) {
+                    dockerImage.push()
+                    }
+                }
+            }
+        }
+        stage('Remove Unused docker image') {
+            steps{
+                script {
+                    sh "docker rmi -f $registry:$BUILD_NUMBER"
+                }
+            }
+        }
     }
 }
