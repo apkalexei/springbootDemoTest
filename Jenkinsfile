@@ -13,12 +13,7 @@ pipeline {
         }
         stage('Unit Tests') {
             steps {
-                sh 'mvn test'
-            }
-            post {
-                always {
-                    junit 'target/surefire-reports/*.xml'
-                }
+                sh 'mvn surefire:test'
             }
         }
          stage('Integration Tests') {
@@ -29,7 +24,7 @@ pipeline {
     }
     post {
         always {
-            junit 'target/surefire-reports/TEST-*.xml'
+            junit 'target/surefire-reports/*.xml'
         }
         failure {
             mail to: 'apedemonte@gmail.com', subject: 'The Pipeline failed :(', body:'The Pipeline failed :('
