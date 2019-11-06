@@ -39,7 +39,7 @@ public class Documentation {
                 .andExpect(status().isOk())
                 .andReturn();
 
-        /
+        
         Swagger2MarkupConverter.from(outputDir + "/swagger.json")
                 .withPathsGroupedBy(GroupBy.TAGS)// 
                 .withMarkupLanguage(MarkupLanguage.ASCIIDOC)//
