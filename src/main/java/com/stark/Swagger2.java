@@ -12,7 +12,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
-@EnableSwagger2 //开启swagger 默认访问地址 /swagger-ui.html
+@EnableSwagger2 //swagger /swagger-ui.html
 public class Swagger2 {
 
     @Bean
@@ -28,7 +28,7 @@ public class Swagger2 {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("RESTful APIs")
-                .description("Spring Boot中使用Swagger2构建RESTful APIs")
+                .description("Spring Boot Build Swagger2 RESTful APIs")
                 .build();
     }
 

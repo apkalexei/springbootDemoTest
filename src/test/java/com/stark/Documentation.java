@@ -33,20 +33,19 @@ public class Documentation {
 
     @After
     public void test() throws Exception {
-        // 得到swagger.json,写入outputDir目录中
+        // swagger.json, Write to the outputDir directory
         mockMvc.perform(RestDocumentationRequestBuilders.get("/v2/api-docs").accept(MediaType.APPLICATION_JSON))
                 .andDo(SwaggerResultHandler.outputDirectory(outputDir).build())
                 .andExpect(status().isOk())
                 .andReturn();
 
-        // 读取上一步生成的swagger.json转成asciiDoc,写入到outputDir
-        // 这个outputDir必须和插件里面<generated></generated>标签配置一致
+        /
         Swagger2MarkupConverter.from(outputDir + "/swagger.json")
-                .withPathsGroupedBy(GroupBy.TAGS)// 按tag排序
-                .withMarkupLanguage(MarkupLanguage.ASCIIDOC)// 格式
+                .withPathsGroupedBy(GroupBy.TAGS)// 
+                .withMarkupLanguage(MarkupLanguage.ASCIIDOC)//
                 .withExamples(snippetDir)
                 .build()
-                .intoFolder(outputDir);// 输出
+                .intoFolder(outputDir);//
     }
 
     @Test

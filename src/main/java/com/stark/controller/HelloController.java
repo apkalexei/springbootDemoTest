@@ -15,8 +15,8 @@ public class HelloController {
     private HelloService service;
 
     @RequestMapping("")
-    //@ApiOperation(value = "hello", notes = "c测试接口")
-    //@ApiImplicitParam(name = "string", value = "接收参数", required = false, dataType = "String")
+    //@ApiOperation(value = "hello", notes = "TEST INTERFACE")
+    //@ApiImplicitParam(name = "string", value = "parameter", required = false, dataType = "String")
     private String hello(@RequestParam(defaultValue = "test") String string) {
         return service.hello();
     }

@@ -26,7 +26,7 @@ public class HelloControllerTest {
     //@Rollback(false)
     public void testInsert() throws Exception {
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders.get("");
-        //request.param("name", "laiminghai");
+        //request.param("name", "ANATOLY");
         mvc.perform(request).
                 andExpect(MockMvcResultMatchers.status().isOk());
 

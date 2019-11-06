@@ -25,7 +25,7 @@
             <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
 
-        <!-- 使用 swagger2 生成在线RestApi文档-->
+        <!-- swagger2 RestApi -->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
@@ -36,7 +36,7 @@
             <artifactId>springfox-swagger-ui</artifactId>
             <version>2.6.1</version>
         </dependency>
-        <!-- 生成静态RESTFul API -->
+        <!-- RESTFul API -->
         <dependency>
             <groupId>org.springframework.restdocs</groupId>
             <artifactId>spring-restdocs-mockmvc</artifactId>
@@ -57,7 +57,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <!--maven 默认的测试插件-->
+            <!--maven-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -66,12 +66,12 @@
                     <includes>
                         <include>**/*Documentation.java</include>
                     </includes>
-                    <skipTests>false</skipTests><!--配置maven 是否跳过测试 等于指令-Dmaven.test.skip=true-->
-                    <testFailureIgnore>true</testFailureIgnore><!--配置测试失败继续执行 等于指令 -Dmaven.test.failure.ignore=true-->
+                    <skipTests>false</skipTests><!--maven -Dmaven.test.skip=true-->
+                    <testFailureIgnore>true</testFailureIgnore><!-- -Dmaven.test.failure.ignore=true-->
                 </configuration>
             </plugin>
-            <!-- 默认生成xml txt
-                mvn surefire-report:report 生成html测试报告
+            <!-- xml txt
+                mvn surefire-report:report 
                 position：
                     target/site/surefire-report.html
                     target/surefire-reports/
@@ -81,7 +81,7 @@
                 <artifactId>maven-surefire-report-plugin</artifactId>
                 <version>3.0.0-M3</version>
             </plugin>
-            <!-- 生成代码测试覆盖率
+            <!-- Code Coverage
              command ：mvn cobertura:cobertura -Pmetrics?
              position ：target/site/cobertura
              -->
@@ -98,7 +98,7 @@
                 </configuration>
             </plugin>
 
-            <!-- 静态代码规范检测
+            <!-- Detección de especificación de código estático
                  command : checkstyle:checkstyle
                  position: target/site/checkstyle.html
             -->
@@ -111,9 +111,9 @@
                 </configuration>
             </plugin>
 
-            <!-- 静态代码缺陷检测
+            <!-- Detección de defectos de código estático
                  command : compile findbugs:findbugs
-                           compile findbugs:gui 界面输出
+                           compile findbugs:gui Salida de interfaz
                  position: target/findbugsXml.xml
             -->
             <plugin>
@@ -121,20 +121,20 @@
                 <artifactId>findbugs-maven-plugin</artifactId>
                 <version>3.0.5</version>
                 <configuration>
-                    <!-- 设置分析工作的等级，可以为Min、Default和Max -->
+                    <!-- Establecer el nivel de trabajo de análisis，Min、Default Max -->
                     <effort>Low</effort>
-                    <!-- Low、Medium和High (Low最严格) High只扫描严重错误。建议用Medium-->
+                    <!-- Low Medium High -->
                     <threshold>Medium</threshold>
                     <failOnError>true</failOnError>
                     <includeTests>true</includeTests>
-                    <!--findbugs需要忽略的错误的配置文件-->
+                    <!--findbugs-->
                     <excludeFilterFile>src/main/resources/findbugs-exclude-filter.xml</excludeFilterFile>
                 </configuration>
-                <!-- 配置在maven 生命周期中的执行-->
+                <!-- maven  lifecycle-->
                 <executions>
                     <execution>
                         <id>run-findbugs</id>
-                        <!-- 在 compile 阶段触发执行findbugs检查，比如执行 mvn clean compile -->
+                        <!-- compile findbugs mvn clean compile -->
                         <phase>compile</phase>
                         <goals>
                             <goal>check</goal>
@@ -142,7 +142,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- PMD 静态代码检查工具
+            <!-- PMD Static code checking tool
                 command : pmd:pmd
                  position: target/pmd.xml
             -->
@@ -152,7 +152,7 @@
                 <version>3.8</version>
                 <configuration>
                     <printFailingErrors>true</printFailingErrors>
-                    <!-- 使用阿里的pmd规则-->
+                    <!-- pmd RULES -->
                     <rulesets>
                         <ruleset>rulesets/java/ali-comment.xml</ruleset>
                         <ruleset>rulesets/java/ali-concurrent.xml</ruleset>
@@ -167,7 +167,7 @@
                     </rulesets>
                 </configuration>
                 <executions>
-                    <!-- 配置在maven 生命周期中的执行-->
+                    <!-- maven LIFECYCLE -->
                     <execution>
                         <phase>verify</phase>
                         <goals>
@@ -176,7 +176,7 @@
                     </execution>
                 </executions>
                 <dependencies>
-                    <!-- 阿里p3c pmd规范配置 -->
+                    <!-- p3c pmC -->
                     <dependency>
                         <groupId>com.alibaba.p3c</groupId>
                         <artifactId>p3c-pmd</artifactId>
@@ -184,7 +184,7 @@
                     </dependency>
                 </dependencies>
             </plugin>
-            <!-- JavaDoc 文档生成插件
+            <!-- JavaDoc 
                 command : javadoc:javadoc
                  position: target/site/apidocs/index.html
             -->
@@ -195,7 +195,7 @@
                 <configuration>
                 </configuration>
             </plugin>
-            <!-- 在 package的时候将asciidoc 文件转化成html文件-->
+            <!--  -->
             <plugin>
                 <groupId>org.asciidoctor</groupId>
                 <artifactId>asciidoctor-maven-plugin</artifactId>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <FindBugsFilter>
-    <!-- 过滤类，包，方法的配置 -->
+    <!-- Filter class, package, method configuration -->
     <!--<Match>
         <Class name="com.missxxxx.proscenium.plugin.misconf.ProsceniumConfig" />
     </Match>
