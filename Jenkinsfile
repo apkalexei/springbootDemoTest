@@ -32,7 +32,7 @@ pipeline {
                 sh './jenkins/scripts/deliver.sh'
             }
         }
-        stage('Building image') {
+    /*    stage('Building image') {
             steps{
                 script {
                     unstash 'target'
@@ -57,5 +57,6 @@ pipeline {
                 }
             }
         }
+        */
     }
 }
