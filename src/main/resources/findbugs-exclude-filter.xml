@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter>
+    <!-- 过滤类，包，方法的配置 -->
+    <!--<Match>
+        <Class name="com.missxxxx.proscenium.plugin.misconf.ProsceniumConfig" />
+    </Match>
+    <Match>
+        <Package name="com.missxxxx.proscenium.plugin.misconf" />
+    </Match>
+    <Match>
+        <Class name="com.missxxxx.proscenium.service.CartShowServiceImpl" />
+        <Method name="getResultData"/>
+    </Match>-->
+</FindBugsFilter>
