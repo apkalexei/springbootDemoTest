@@ -27,10 +27,4 @@ pipeline {
             }
         }
     }
-    post {
-        
-        failure {
-            mail to: 'apedemonte@gmail.com', subject: 'The Pipeline failed :(', body:'The Pipeline failed :('
-        }
-    }
 }
