@@ -31,7 +31,7 @@ pipeline {
        stage('Deliver') {
             steps {
                 sh './jenkins/scripts/deliver.sh'
-                sh 'mvn deploy'
+                sh 'mvn dockerfile:push'
               /*  sh 'sudo docker login -u anatolyalexei -p be3e14df-c305-4cd0-8575-79645372cbd3' */
                 
             }
