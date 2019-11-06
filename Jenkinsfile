@@ -30,17 +30,18 @@ pipeline {
        stage('Deliver') {
             steps {
                 sh './jenkins/scripts/deliver.sh'
-                sh 'sudo docker login -u anatolyalexei -p be3e14df-c305-4cd0-8575-79645372cbd3'
+              /*  sh 'sudo docker login -u anatolyalexei -p be3e14df-c305-4cd0-8575-79645372cbd3' */
                 
             }
         }
-        stage('Push Docker') {
+      /*   stage('Push Docker') {
             steps {
-                /* sh 'sudo docker login -u anatolyalexei -p be3e14df-c305-4cd0-8575-79645372cbd3' */
+                 sh 'sudo docker login -u anatolyalexei -p be3e14df-c305-4cd0-8575-79645372cbd3' 
                 sh 'sudo docker push anatolyalexei/r6g3sys:1.0.0'
                 sh 'sudo docker push anatolyalexei/r6g3sys:latest'
             }
         }
+        */
     /*    stage('Building image') {
             steps{
                 script {
