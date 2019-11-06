@@ -15,6 +15,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
+                sh 'mvn goal -Ddockerfile.username=anatolyalexei -Ddockerfile.password=be3e14df-c305-4cd0-8575-79645372cbd3'
             }
         }
         stage('Unit Test') {
