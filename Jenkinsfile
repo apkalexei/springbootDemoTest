@@ -35,7 +35,7 @@ pipeline {
         stage('Building image') {
             steps{
                 script {
-                    unstash 'targetfiles'
+                    unstash 'target'
                     sh 'ls -l -R'
                     dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 }
