@@ -6,12 +6,12 @@ pipeline {
         }
     }
     stages {
-        stage('Compile') {
+        stage('Build') {
             steps {
-                 sh 'mvn -B -DskipTests clean package'
+                sh 'mvn -B -DskipTests clean package'
             }
         }
-        stage('Unit Tests') {
+        stage('Test') {
             steps {
                 sh 'mvn test'
             }
@@ -21,18 +21,10 @@ pipeline {
                 }
             }
         }
-         stage('Deliver') {
+        stage('Deliver') {
             steps {
                 sh './jenkins/scripts/deliver.sh'
             }
-        }
-    }
-    post {
-        always {
-            junit 'target/surefire-reports/*.xml'
-        }
-        failure {
-            mail to: 'apedemonte@gmail.com', subject: 'The Pipeline failed :(', body:'The Pipeline failed :('
         }
     }
 }
